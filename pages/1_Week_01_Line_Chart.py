@@ -6,6 +6,9 @@ from streamlit_ydata_profiling import st_profile_report
 @st.cache_data
 def load_data():
     df = pd.read_csv('./data/2024_Week01.csv')
+
+    # perform some transformation on the data
+    # remove commas from the numbers
     df.replace(',', '', regex=True, inplace=True)
 
     # make date from year
