@@ -1,7 +1,7 @@
 import pandas as pd
 import streamlit as st
-import ydata_profiling
-from streamlit_pandas_profiling import st_profile_report
+from ydata_profiling import ProfileReport
+from streamlit_ydata_profiling import st_profile_report
 
 @st.cache_data
 def load_data():
@@ -31,6 +31,5 @@ with tab_charts:
 
 with tab_data:
     st.title("Explore Data")
-
-    pr = df.profile_report()
-    st_profile_report(pr)
+    pr = ProfileReport(df, explorative=True)
+    st_profile_report(pr, navbar=True)
